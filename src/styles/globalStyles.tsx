@@ -22,7 +22,7 @@ const GlobalStyles = () => (
         }
 
         body {
-          background-color: #202324;
+          background-color: #fff;
         }
       `}
     />

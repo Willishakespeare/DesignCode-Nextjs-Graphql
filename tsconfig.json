@@ -4,7 +4,7 @@
     "paths": {
       "@Atoms/*": ["src/components/atoms/*"],
       "@Molecules/*": ["src/components/molecules/*"],
-      "@Organism/*": ["src/components/organism/*"],
+      "@Organisms/*": ["src/components/organisms/*"],
       "@Templates/*": ["src/components/templates/*"],
       "@Assets/*": ["src/assets/*"],
       "@Styles/*": ["src/styles/*"],
@@ -31,7 +31,7 @@
     "src",
     "react-app-env.d.ts",
     "../types.d.ts",
-    "../next-env.d.ts",
+    "next-env.d.ts",
     "../fonts.d.ts",
     "../**/*.stories.ts",
     "../**/*.stories.tsx",

@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from '@Styles/globalStyles';
-import UserContext from '@Assets/hooks/UserContext';
+import ThemeContext from '@Assets/hooks/ThemeContext';
 import { theme1 } from '@Styles/theme';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState(theme1);
   return (
-    <ThemeProvider theme={theme}>
-      <UserContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Component setTheme={setTheme} {...pageProps} />
-      </UserContext.Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 };
 

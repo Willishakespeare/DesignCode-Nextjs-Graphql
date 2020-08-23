@@ -11,6 +11,7 @@ const text: Theme['colors']['text'] = {
 
 export const theme1: Theme = {
   name: 'blueTheme',
+  background: '/assets/images/back1.png',
   colors: {
     fill: {
       primary: '#3380C7',
@@ -28,16 +29,17 @@ export const theme1: Theme = {
 
 export const theme2: Theme = {
   name: 'redTheme',
+  background: '/assets/images/back2.png',
   colors: {
     fill: {
       primary: '#E07495',
       secondary: '#CD5479',
-      acent: '#2B5072'
+      acent: '#A63054'
     },
     blur: {
       primary: '#E483A14D',
       secondary: '#BA40664D',
-      acent: '#2B5072'
+      acent: '#A630544D'
     },
     text
   }

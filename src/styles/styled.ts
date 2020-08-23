@@ -21,6 +21,7 @@ interface IColorVariant {
 export type Theme = {
   name: string;
   colors: IColorVariant;
+  background: string;
 };
 
 export default styled as CreateStyled<Theme>;

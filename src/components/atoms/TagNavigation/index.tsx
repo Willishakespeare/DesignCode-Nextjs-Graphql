@@ -1,32 +1,35 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import Icon from '@Atoms/Icon';
+import { useRouter, NextRouter } from 'next/router';
+import Link from 'next/link';
 
-type ButtonProps = {
+type TagNavigationProps = {
   text?: string;
-  variant?: 'outline';
+  activate?: boolean;
   icon?: string;
+  href: string;
+  router?: NextRouter;
   position?: 'right';
   onClick?: () => void;
 };
 
-const StyledButton = styled.button<ButtonProps>`
+const TagNavigationButton = styled.button<TagNavigationProps>`
   display: flex;
   overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4.8px 14.4px rgba(0, 0, 0, 0.15);
   font-family: 'MohrRounded';
-  font-weight: 500;
-  font-size: 11px;
+  font-weight: 600;
+  font-size: 10px;
   letter-spacing: 2px;
-  color: ${({ variant, theme }) =>
-    variant === 'outline' ? theme.colors.text.primary : theme.colors.text.primary};
-  background-color: ${({ variant, theme }) =>
-    variant === 'outline' ? theme.colors.blur.primary : theme.colors.fill.primary};
+  color: ${({ activate, theme }) => (activate ? theme.colors.text.primary : theme.colors.text.secondary)};
+  background-color: ${({ activate, theme }) =>
+    activate ? theme.colors.fill.primary : theme.colors.text.primary};
   height: 35px;
-  padding: ${({ position }) => (position === 'right' ? '0px 20px 0px 25px' : '0px 25px 0px 25px')};
+  padding: 0px 20px 0px 45px;
   line-height: 50px;
-  border: ${({ variant, theme }) =>
-    variant === 'outline' ? `2px solid ${theme.colors.fill.primary}` : 'none'};
-  border-radius: 2px;
+  border: none;
+  border-radius: 2px 70px 70px 2px;
   justify-content: center;
   align-items: center;
   outline: none;
@@ -36,19 +39,20 @@ const StyledButton = styled.button<ButtonProps>`
   backdrop-filter: blur(30px);
 
   &:hover {
-    background-color: ${({ variant, theme }) =>
-      variant === 'outline' ? theme.colors.blur.secondary : theme.colors.fill.secondary};
+    background-color: ${({ activate, theme }) =>
+      activate ? theme.colors.fill.secondary : theme.colors.text.blurSecondary};
 
     &:before {
-      background-color: hsla(0, 0%, 100%, 0.2);
+      ${({ activate }) =>
+        activate ? 'background-color: hsla(0, 0%, 100%, 0.2)' : 'background-color: hsla(0, 0%, 40%, 0.2)'};
     }
   }
   &:focus {
     outline: none;
   }
   &:active {
-    background-color: ${({ variant, theme }) =>
-      variant === 'outline' ? theme.colors.blur.secondary : theme.colors.fill.acent};
+    background-color: ${({ activate, theme }) =>
+      activate ? theme.colors.blur.secondary : theme.colors.text.acent};
     transition: background-color 0.2s ease-out;
   }
   &:before {
@@ -59,10 +63,7 @@ const StyledButton = styled.button<ButtonProps>`
     bottom: 0;
     left: 0;
 
-    border: ${({ variant, theme }) =>
-      variant === 'outline'
-        ? `2px solid ${theme.colors.fill.secondary}`
-        : '1px solid hsla(240, 0%, 100%, 0.9);'};
+    border: 1px solid hsla(240, 0%, 100%, 0.9);
     border-radius: 2px;
     mask-image: radial-gradient(circle closest-side, white, transparent);
     mask-origin: border-box;
@@ -75,8 +76,7 @@ const StyledButton = styled.button<ButtonProps>`
     position: absolute;
     border-radius: 50%;
     opacity: 0;
-    background: ${({ variant, theme }) =>
-      variant === 'outline' ? `${theme.colors.fill.primary}66` : `rgba(255, 255, 255, 0.4)`};
+    background: rgba(255, 255, 255, 0.4);
     animation: ripple-animation 2s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   @keyframes ripple-animation {
@@ -91,7 +91,14 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ onClick, variant, children, icon, position }) => {
+const TagNavigation: React.FC<TagNavigationProps> = ({
+  onClick,
+  activate,
+  href,
+  children,
+  icon,
+  position
+}) => {
   const btnRef: React.RefObject<HTMLButtonElement> = React.createRef();
 
   const ButtonRipple = (e: React.MouseEvent) => {
@@ -132,22 +139,25 @@ const Button: React.FC<ButtonProps> = ({ onClick, variant, children, icon, posit
       activeRef.style.webkitMaskPosition = `${width}px ${height}px`;
     }
   };
-
+  const router = useRouter();
   return (
-    <StyledButton
-      onMouseDown={ButtonRipple}
-      onMouseMove={Revealhighlight}
-      onMouseLeave={RevealhighlightOut}
-      ref={btnRef}
-      variant={variant}
-      position={position}
-      onClick={onClick}
-    >
-      {position !== 'right' && icon ? <Icon icon={icon} position={position} /> : null}
-      {children}
-      {position === 'right' && icon ? <Icon icon={icon} position={position} /> : null}
-    </StyledButton>
+    <Link href={href}>
+      <TagNavigationButton
+        onMouseDown={ButtonRipple}
+        onMouseMove={Revealhighlight}
+        onMouseLeave={RevealhighlightOut}
+        ref={btnRef}
+        activate={activate}
+        position={position}
+        onClick={onClick}
+        href={href}
+        router={router}
+      >
+        {activate && icon ? <Icon icon={icon} /> : null}
+        {children}
+      </TagNavigationButton>
+    </Link>
   );
 };
 
-export default Button;
+export default TagNavigation;
