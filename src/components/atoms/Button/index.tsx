@@ -11,6 +11,11 @@ type ButtonProps = {
 };
 
 const StyledButton = styled.button<ButtonProps>`
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
   display: flex;
   overflow: hidden;
   font-family: 'MohrRounded';

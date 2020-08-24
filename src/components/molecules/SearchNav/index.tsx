@@ -11,6 +11,11 @@ const StyledSearchNav = styled.div`
   input:focus {
     outline: 0;
   }
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 `;
 const StyledIconContainer = styled.div`
   display: flex;
@@ -44,6 +49,13 @@ const StyledInput = styled.input`
     font-size: 13px;
     color: ${({ theme }) => theme.colors.text.secondary};
   }
+  @media (max-width: 1024px) {
+    width: 10px;
+    :focus {
+      width: 120px;
+    }
+  }
+  transition: width 0.5s ease;
 `;
 const StyledInputContainer = styled.div`
   display: flex;

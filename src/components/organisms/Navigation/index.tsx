@@ -15,6 +15,12 @@ const StyledNavigation = styled.div`
   background-color: #1e1e1e66;
   width: 100%;
   height: 110px;
+  .LogoIMGClass {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
   svg {
     g {
       path:nth-of-type(2) {
@@ -28,13 +34,19 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 527px;
+  @media (max-width: 1024px) {
+    width: 280px;
+  }
+  button {
+    margin-right: 20px;
+  }
 `;
 
 const Navigation: React.FC = () => {
   return (
     <StyledNavigation>
       <NavigationMenu />
-      <LogoIMG />
+      <LogoIMG className="LogoIMGClass" />
       <StyledContainer>
         <SearchNav />
         <Button>LOGIN</Button>

@@ -14,13 +14,13 @@ export const theme1: Theme = {
   background: '/assets/images/back1.png',
   colors: {
     fill: {
-      primary: '#3380C7',
-      secondary: '#1F6CB2',
+      primary: '#455AC9',
+      secondary: '#3249C2',
       acent: '#275C8B'
     },
     blur: {
-      primary: '#519CE04D',
-      secondary: '#519CE04D',
+      primary: '#5339BB4D',
+      secondary: '#5339BB4D',
       acent: '#275D904D'
     },
     text
@@ -44,3 +44,5 @@ export const theme2: Theme = {
     text
   }
 };
+
+export default { theme1, theme2 };

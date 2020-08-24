@@ -13,25 +13,26 @@ const StyledNav = styled.div`
     margin: -15px;
   }
   button:nth-last-of-type(1) {
-    padding: 0px 25px 0px 20px;
+    padding: 0px 25px 0px 10px;
   }
   button:nth-of-type(1) {
     border-radius: 2px;
   }
+  transition: width 0.2s;
 `;
 const NavigationMenu: React.FC = () => {
   return (
     <StyledNav>
-      <TagNav href="/" icon="home">
+      <TagNav href="/contact" icon="home">
         CONTACT
       </TagNav>
-      <TagNav href="/" icon="home">
+      <TagNav href="/porfolio" icon="porfolio">
         PORFOLIO
       </TagNav>
-      <TagNav href="/" icon="home">
+      <TagNav href="/designs" icon="home">
         DESIGNS
       </TagNav>
-      <TagNav href="/" icon="home">
+      <TagNav href="/projects" icon="home">
         PROJECTS
       </TagNav>
       <TagNav href="/" activate icon="home">

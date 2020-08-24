@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import { theme1, theme2 } from '@Styles/theme';
+import Themes from '@Styles/theme';
 import UserContext from '@Assets/hooks/ThemeContext';
 
 import Button from '@Atoms/Button';
-import Navigation from '@Organisms/Navigation';
-import BackgroundImage from '@Atoms/BackgroundImage';
+import MainPageTemplate from '@Templates/MainPageTemplate';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -18,26 +17,27 @@ const StyledDiv = styled.div`
   }
 `;
 
-export default function Home() {
+const Index: React.FC = () => {
   const { theme, setTheme } = React.useContext(UserContext);
   return (
-    <>
-      <Navigation />
-      <BackgroundImage>
-        <StyledDiv>
-          <Button
-            onClick={() => {
-              if (theme.name === 'blueTheme') {
-                setTheme(theme2);
-              } else {
-                setTheme(theme1);
-              }
-            }}
-          >
-            LOGIN
-          </Button>
-        </StyledDiv>
-      </BackgroundImage>
-    </>
+    <MainPageTemplate>
+      <StyledDiv>
+        <Button
+          onClick={() => {
+            if (theme.name === 'theme1') {
+              localStorage.setItem('theme', 'theme2');
+              setTheme(Themes.theme2);
+            } else {
+              localStorage.setItem('theme', 'theme1');
+              setTheme(Themes.theme1);
+            }
+          }}
+        >
+          LOGIN
+        </Button>
+      </StyledDiv>
+    </MainPageTemplate>
   );
-}
+};
+
+export default Index;
