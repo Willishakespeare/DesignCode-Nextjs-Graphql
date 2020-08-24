@@ -33,7 +33,7 @@ const Index: React.FC = () => {
             }
           }}
         >
-          LOGIN
+          CAMBIAR EL COLOR
         </Button>
       </StyledDiv>
     </MainPageTemplate>
