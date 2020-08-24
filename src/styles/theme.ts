@@ -10,7 +10,7 @@ const text: Theme['colors']['text'] = {
 };
 
 export const theme1: Theme = {
-  name: 'blueTheme',
+  name: 'theme1',
   background: '/assets/images/back1.png',
   colors: {
     fill: {
@@ -28,7 +28,7 @@ export const theme1: Theme = {
 };
 
 export const theme2: Theme = {
-  name: 'redTheme',
+  name: 'theme2',
   background: '/assets/images/back2.png',
   colors: {
     fill: {
