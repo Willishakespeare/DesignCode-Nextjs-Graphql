@@ -21,7 +21,6 @@ const StyledTagView = styled.div<TypesTagView>`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4.8px 14.4px rgba(0, 0, 0, 0.15);
   background: linear-gradient(180deg, #0a0a0a99, #0a0a0a99 100%),
     url(${({ background, theme }) => background || theme.background}) center/cover;
-  background-color: red;
   div {
     width: 85%;
     margin: 0px;

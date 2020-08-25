@@ -1,7 +1,7 @@
 import { Theme } from '../styled';
 
 const text: Theme['colors']['text'] = {
-  primary: '#FFFFFFCC',
+  primary: '#FFFFFF',
   secondary: '#201F1E',
   acent: '#C5C5C5CC',
   blurPrimary: '#E4E4E4CC',

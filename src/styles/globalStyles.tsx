@@ -1,4 +1,5 @@
 import { Global, css } from '@emotion/core';
+import emotionNormalize from 'emotion-normalize';
 import FontLoad from './fontLoad';
 
 const GlobalStyles = () => (
@@ -6,6 +7,7 @@ const GlobalStyles = () => (
     <FontLoad />
     <Global
       styles={css`
+        ${emotionNormalize}
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 

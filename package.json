@@ -27,6 +27,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "babel-plugin-file-loader": "^2.0.0",
+    "emotion-normalize": "^10.1.0",
     "emotion-theming": "^10.0.27",
     "next": "^9.5.1",
     "next-fonts": "^1.4.0",
