@@ -27,7 +27,7 @@ const StyledButton = styled.button<ButtonProps>`
   background-color: ${({ variant, theme }) =>
     variant === 'outline' ? theme.colors.blur.primary : theme.colors.fill.primary};
   height: 35px;
-  padding: ${({ position }) => (position === 'right' ? '0px 20px 0px 25px' : '0px 25px 0px 25px')};
+  padding: ${({ position }) => (position === 'right' ? '0px 20px 1px 25px' : '0px 25px 1px 25px')};
   line-height: 50px;
   border: ${({ variant, theme }) =>
     variant === 'outline' ? `2px solid ${theme.colors.fill.primary}` : 'none'};
@@ -40,6 +40,10 @@ const StyledButton = styled.button<ButtonProps>`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4.8px 14.4px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(30px);
 
+  svg {
+    margin: auto;
+    height: 50%;
+  }
   &:hover {
     background-color: ${({ variant, theme }) =>
       variant === 'outline' ? theme.colors.blur.secondary : theme.colors.fill.secondary};

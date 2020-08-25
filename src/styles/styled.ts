@@ -1,5 +1,13 @@
 import styled, { CreateStyled } from '@emotion/styled';
 
+interface ITextTitle {
+  primaryText: [string, string, string];
+  secondatyText: [string, string];
+}
+interface ITextDescription {
+  text: [string, string];
+}
+
 interface IText {
   primary: string;
   secondary: string;
@@ -22,6 +30,8 @@ export type Theme = {
   name: string;
   colors: IColorVariant;
   background: string;
+  title: ITextTitle;
+  description: ITextDescription;
 };
 
 export default styled as CreateStyled<Theme>;

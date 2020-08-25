@@ -9,25 +9,25 @@ const text: Theme['colors']['text'] = {
   blurAcent: '#C5C5C5CC'
 };
 
-const theme1: Theme = {
-  name: 'theme1',
-  background: '/assets/images/back1.png',
+const theme3: Theme = {
+  name: 'theme3',
+  background: '/assets/images/back3.png',
   colors: {
     fill: {
-      primary: '#455AC9',
-      secondary: '#3249C2',
+      primary: '#BFA44E',
+      secondary: '#8E772E',
       acent: '#275C8B'
     },
     blur: {
-      primary: '#5339BB4D',
-      secondary: '#5339BB4D',
+      primary: '#A5882D4D',
+      secondary: '#A5882D4D',
       acent: '#275D904D'
     },
     text
   },
   title: {
-    primaryText: ['DESIGN', 'DESIGN', 'GET BEST WEBPAGE FOR YOUR'],
-    secondatyText: ['YOUR PAGE WITH', 'CODE']
+    primaryText: ['IMPROVE', 'DESIGN', 'GET BEST SOLUTION FOR YOUR BUSINESS'],
+    secondatyText: ['YOUR BUSINESS WITH', 'CODE']
   },
   description: {
     text: [
@@ -37,4 +37,4 @@ const theme1: Theme = {
   }
 };
 
-export default theme1;
+export default theme3;

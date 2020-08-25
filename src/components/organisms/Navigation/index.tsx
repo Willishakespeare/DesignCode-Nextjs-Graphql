@@ -37,6 +37,11 @@ const StyledContainer = styled.div`
   @media (max-width: 1024px) {
     width: 280px;
   }
+  @media (max-width: 424px) {
+    div {
+      display: none;
+    }
+  }
   button {
     margin-right: 20px;
   }

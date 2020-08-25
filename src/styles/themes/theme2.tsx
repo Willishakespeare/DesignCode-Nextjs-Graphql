@@ -24,6 +24,16 @@ const theme2: Theme = {
       acent: '#A630544D'
     },
     text
+  },
+  title: {
+    primaryText: ['DESIGN', 'DESIGN', 'GET BEST MOBILE APP FOR YOUR'],
+    secondatyText: ['YOUR APP WITH', 'CODE']
+  },
+  description: {
+    text: [
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor.'
+    ]
   }
 };
 
