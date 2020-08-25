@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import UserContext from '@Assets/hooks/ThemeContext';
 import TagView from '@Molecules/TagView';
 import styled from '@Styles/styled';
@@ -37,63 +37,6 @@ const StyledTagViewGrid = styled.div`
 const TagViewGrid: React.FC = () => {
   const { setTheme } = React.useContext(UserContext);
 
-  function init(e) {
-    new SmoothScroll(e, 70, 30);
-  }
-
-  function SmoothScroll(target, speed, smooth) {
-    let moving = false;
-    let pos = target.scrollLeft;
-    const frame = target;
-
-    target.addEventListener('mousewheel', scrolled, false);
-    target.addEventListener('DOMMouseScroll', scrolled, false);
-
-    function scrolled(e) {
-      e.preventDefault(); // disable default scrolling
-
-      const delta = normalizeWheelDelta(e);
-
-      pos += -delta * speed;
-      pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientLeft)); // limit scrolling
-
-      if (!moving) update();
-    }
-
-    function normalizeWheelDelta(e) {
-      if (e.detail) {
-        if (e.wheelDelta) return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1);
-        // Opera
-        return -e.detail / 3; // Firefox
-      }
-      return e.wheelDelta / 120; // IE,Safari,Chrome
-    }
-
-    function update() {
-      moving = true;
-
-      const delta = (pos - target.scrollLeft) / smooth;
-
-      target.scrollLeft += delta;
-
-      if (Math.abs(delta) > 0.5) requestFrame(update);
-      else moving = false;
-    }
-
-    var requestFrame = (function () {
-      // requestAnimationFrame cross browser
-      return (
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        function (func) {
-          window.setTimeout(func, 1000 / 50);
-        }
-      );
-    })();
-  }
-  useEffect(() => {
-    init(document.getElementById('viewsContainerID'));
-  }, []);
   return (
     <StyledTagViewGrid id="viewsContainerID">
       <TagView
