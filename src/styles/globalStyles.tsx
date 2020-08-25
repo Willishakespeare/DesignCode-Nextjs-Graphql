@@ -21,7 +21,9 @@ const GlobalStyles = () => (
           font-size: 16px;
         }
 
-        body {
+        html body {
+          width: 100vw;
+          height: 100vh;
           background-color: #fff;
         }
       `}

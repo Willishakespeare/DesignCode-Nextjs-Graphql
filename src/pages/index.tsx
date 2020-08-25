@@ -22,6 +22,7 @@ const Index: React.FC = () => {
   const { theme, setTheme } = React.useContext(UserContext);
   return (
     <MainPageTemplate>
+      <TextPage />
       <StyledDiv>
         <Button
           onClick={() => {
@@ -52,7 +53,6 @@ const Index: React.FC = () => {
           CAMBIAR EL COLOR
         </Button>
       </StyledDiv>
-      <TextPage />
     </MainPageTemplate>
   );
 };
