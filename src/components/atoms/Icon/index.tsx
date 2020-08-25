@@ -6,6 +6,7 @@ type IconProps = {
   size?: 'sm' | 'rl';
   icon?: string;
   position?: 'left' | 'right';
+  className?: string;
 };
 
 const StyledIcon = styled.div<IconProps>`
@@ -17,7 +18,7 @@ const StyledIcon = styled.div<IconProps>`
   }
 `;
 
-const Icon: React.FC<IconProps> = ({ icon, position }) => {
+const Icon: React.FC<IconProps> = ({ icon, position, className }) => {
   const DynamicIcon = dynamic(() =>
     import(`@Assets/icons/${icon}.svg`).catch(() => {
       return false;
@@ -26,7 +27,7 @@ const Icon: React.FC<IconProps> = ({ icon, position }) => {
 
   if (DynamicIcon) {
     return (
-      <StyledIcon position={position}>
+      <StyledIcon position={position} className={className}>
         <DynamicIcon />
       </StyledIcon>
     );

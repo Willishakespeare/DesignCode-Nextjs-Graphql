@@ -5,6 +5,8 @@ import styled from '@Styles/styled';
 import Button from '@Atoms/Button';
 
 const StyledTextPageContainer = styled.div`
+  margin-left: 7vw;
+  margin-bottom: 7vw;
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;

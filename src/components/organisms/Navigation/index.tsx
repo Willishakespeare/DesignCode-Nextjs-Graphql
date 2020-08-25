@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import NavigationMenu from '@Molecules/NavigationMenu';
-import LogoIMG from '@Assets/icons/logo.svg';
 import Button from '@Atoms/Button';
 import SearchNav from '@Molecules/SearchNav';
+import Icon from '@Atoms/Icon';
 
 const StyledNavigation = styled.div`
   position: absolute;
@@ -14,15 +14,14 @@ const StyledNavigation = styled.div`
   justify-content: space-around;
   background-color: #1e1e1e66;
   width: 100%;
-  height: 110px;
+  height: 100px;
   .LogoIMGClass {
     @media (max-width: 1024px) {
       display: none;
     }
   }
-
-  svg {
-    g {
+  div:nth-of-type(2) {
+    svg {
       path:nth-of-type(2) {
         fill: ${({ theme }) => theme.colors.fill.primary};
       }
@@ -51,7 +50,8 @@ const Navigation: React.FC = () => {
   return (
     <StyledNavigation>
       <NavigationMenu />
-      <LogoIMG className="LogoIMGClass" />
+      <Icon icon="logo" className="LogoIMGClass" />
+
       <StyledContainer>
         <SearchNav />
         <Button>LOGIN</Button>
