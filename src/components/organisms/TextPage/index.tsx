@@ -6,13 +6,7 @@ import Button from '@Atoms/Button';
 
 const StyledTextPageContainer = styled.div`
   margin-left: 7vw;
-  margin-bottom: 7vw;
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
     button {
       width: max-content;
     }
@@ -21,7 +15,7 @@ const StyledTextPageContainer = styled.div`
     margin-top: 15px;
   }
   button {
-    margin-top: 20px;
+    margin-top: 40px;
   }
 `;
 const TextPage: React.FC = () => {

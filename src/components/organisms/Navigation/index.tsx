@@ -13,7 +13,7 @@ const StyledNavigation = styled.div`
   align-items: center;
   justify-content: space-around;
   background-color: #1e1e1e66;
-  width: 100%;
+  width: 100vw;
   height: 100px;
   .LogoIMGClass {
     @media (max-width: 1024px) {
@@ -21,6 +21,9 @@ const StyledNavigation = styled.div`
     }
   }
   div:nth-of-type(2) {
+    padding: 0px;
+    margin: auto;
+
     svg {
       path:nth-of-type(2) {
         fill: ${({ theme }) => theme.colors.fill.primary};
@@ -31,18 +34,21 @@ const StyledNavigation = styled.div`
 const StyledContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 527px;
+  justify-content: space-between;
+  width: 420px;
+  margin: auto;
   @media (max-width: 1024px) {
-    width: 280px;
+    width: max-content;
   }
-  @media (max-width: 424px) {
-    div {
+  @media (max-width: 769px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 769px) {
+    button:nth-of-type(1) {
       display: none;
     }
-  }
-  button {
-    margin-right: 20px;
   }
 `;
 
@@ -51,8 +57,8 @@ const Navigation: React.FC = () => {
     <StyledNavigation>
       <NavigationMenu />
       <Icon icon="logo" className="LogoIMGClass" />
-
       <StyledContainer>
+        <Button icon="home" />
         <SearchNav />
         <Button>LOGIN</Button>
       </StyledContainer>

@@ -3,12 +3,11 @@ import styled from '@Styles/styled';
 import UserContext from '@Assets/hooks/ThemeContext';
 
 const StyledTextTitle = styled.div`
-  @media (max-width: 768px) {
+  @media (max-width: 620px) {
     font-size: 8vw;
     line-height: calc(8vw + 5px);
     display: flex;
     flex-direction: column;
-    width: 70%;
     span:nth-last-of-type(1) {
       width: max-content;
     }

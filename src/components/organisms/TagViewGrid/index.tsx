@@ -25,6 +25,7 @@ const StyledTagViewGrid = styled.div`
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
+    border-radius: 50px;
     background: ${({ theme }) => theme.colors.fill.primary};
   }
 

@@ -7,6 +7,9 @@ const StyledSearchNav = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 769px) {
+    margin: 0px;
+  }
   margin-right: 30px;
   input:focus {
     outline: 0;

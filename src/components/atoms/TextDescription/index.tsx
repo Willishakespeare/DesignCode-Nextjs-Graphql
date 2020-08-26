@@ -6,7 +6,7 @@ const StyledTextDescription = styled.div`
   @media (max-width: 768px) {
     font-size: 3vw;
     line-height: calc(3vw + 5px);
-    width: 70%;
+    width: 60vw;
   }
   width: 430px;
   height: max-content;

@@ -6,7 +6,6 @@ const StyledBackGroundImage = styled.div`
   height: 100%;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 92.31%),
     url(${({ theme }) => theme.background}) center/cover;
-  backdrop-filter: blur(2px);
 `;
 
 const StyledBackGroundImageBlurEffect = styled.div`
@@ -16,14 +15,14 @@ const StyledBackGroundImageBlurEffect = styled.div`
 `;
 const StyledBackGroundContainer = styled.div`
   display: flex;
-  padding-top: 110px;
+  padding-top: 100px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   min-height: calc(100vh);
   max-height: 100%;
   @media (max-width: 1024px) {
-    align-items: center;
+    padding-top: 50px;
     justify-content: center;
   }
 `;

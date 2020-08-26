@@ -15,6 +15,7 @@ const StyledTagView = styled.div<TypesTagView>`
   width: 200px;
   margin-right: 20px;
   display: flex;
+  border-radius: 2px;
   flex-direction: column;
   align-items: center;
   justify-content: center;

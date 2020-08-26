@@ -26,12 +26,13 @@ const TagNavigationButton = styled.button<TagNavigationProps>`
   font-family: 'MohrRounded';
   font-weight: 600;
   font-size: 10px;
+  width: 120px;
   letter-spacing: 2px;
   color: ${({ activate, theme }) => (activate ? theme.colors.text.primary : theme.colors.text.secondary)};
   background-color: ${({ activate, theme }) =>
     activate ? theme.colors.fill.primary : theme.colors.text.primary};
   height: 35px;
-  padding: 0px 20px 0px 35px;
+  padding: 0px 20px 0px 25px;
   line-height: 50px;
   border: none;
   border-radius: 2px 70px 70px 2px;
@@ -46,7 +47,7 @@ const TagNavigationButton = styled.button<TagNavigationProps>`
     padding-left: 10px;
   }
   svg {
-    display: ${({ activate }) => (activate ? 'flex' : 'none')};
+    display: none;
   }
   @media (max-width: 1024px) {
     svg {
