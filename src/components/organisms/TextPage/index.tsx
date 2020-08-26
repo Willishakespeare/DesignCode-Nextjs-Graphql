@@ -6,6 +6,7 @@ import Button from '@Atoms/Button';
 
 const StyledTextPageContainer = styled.div`
   margin-left: 7vw;
+  z-index: 1;
   @media (max-width: 768px) {
     button {
       width: max-content;

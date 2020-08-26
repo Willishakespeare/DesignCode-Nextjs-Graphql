@@ -8,7 +8,7 @@ import Icon from '@Atoms/Icon';
 const StyledNavigation = styled.div`
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-around;

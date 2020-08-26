@@ -3,27 +3,27 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyles from '@Styles/globalStyles';
 import ThemeContext from '@Assets/hooks/ThemeContext';
+import LoadContext from '@Assets/hooks/LoadContext';
 import Theme from '@Styles/theme';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState(Theme.theme1);
+  const [load, setLoad] = useState(true);
   useEffect(() => {
     const themeLocal = localStorage.getItem('theme');
-    if (themeLocal) {
-      import(`@Styles/themes/${themeLocal}`).then((module) => {
-        setTheme(module.default);
-      });
-    } else {
+    if (!themeLocal) {
       localStorage.setItem('theme', 'theme1');
-      setTheme(Theme.theme1);
     }
   });
+
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Component setTheme={setTheme} {...pageProps} />
-      </ThemeProvider>
+      <LoadContext.Provider value={{ load, setLoad }}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <Component setTheme={setTheme} {...pageProps} />
+        </ThemeProvider>
+      </LoadContext.Provider>
     </ThemeContext.Provider>
   );
 };

@@ -1,10 +1,10 @@
 import React from 'react';
-import UserContext from '@Assets/hooks/ThemeContext';
 import TagView from '@Molecules/TagView';
 import styled from '@Styles/styled';
-import Themes from '@Styles/theme';
+import LoadContext from '@Assets/hooks/LoadContext';
 
 const StyledTagViewGrid = styled.div`
+  z-index: 1;
   height: 100%;
   width: calc(100vw / 2);
   overflow-x: scroll;
@@ -36,8 +36,7 @@ const StyledTagViewGrid = styled.div`
 `;
 
 const TagViewGrid: React.FC = () => {
-  const { setTheme } = React.useContext(UserContext);
-
+  const { setLoad } = React.useContext(LoadContext);
   return (
     <StyledTagViewGrid id="viewsContainerID">
       <TagView
@@ -46,7 +45,7 @@ const TagViewGrid: React.FC = () => {
         background="/assets/images/back1.png"
         hover={() => {
           localStorage.setItem('theme', 'theme1');
-          setTheme(Themes.theme1);
+          setLoad(false);
         }}
       />
       <TagView
@@ -54,8 +53,8 @@ const TagViewGrid: React.FC = () => {
         color="#E07495"
         background="/assets/images/back2.png"
         hover={() => {
+          setLoad(false);
           localStorage.setItem('theme', 'theme2');
-          setTheme(Themes.theme2);
         }}
       />
       <TagView
@@ -63,8 +62,8 @@ const TagViewGrid: React.FC = () => {
         color="#BFA44E"
         background="/assets/images/back3.png"
         hover={() => {
+          setLoad(false);
           localStorage.setItem('theme', 'theme3');
-          setTheme(Themes.theme3);
         }}
       />
       <TagView
@@ -72,8 +71,8 @@ const TagViewGrid: React.FC = () => {
         color="#579365"
         background="/assets/images/back4.png"
         hover={() => {
+          setLoad(false);
           localStorage.setItem('theme', 'theme4');
-          setTheme(Themes.theme4);
         }}
       />
       <TagView
@@ -81,8 +80,8 @@ const TagViewGrid: React.FC = () => {
         color="#83B6CA"
         background="/assets/images/back5.png"
         hover={() => {
+          setLoad(false);
           localStorage.setItem('theme', 'theme5');
-          setTheme(Themes.theme5);
         }}
       />
     </StyledTagViewGrid>

@@ -10,9 +10,10 @@ type TypesTagView = {
   text?: [string, string, string];
 };
 const StyledTagView = styled.div<TypesTagView>`
+  cursor: pointer;
   height: 450px;
-  margin: 20px 0px 20px 0px;
   width: 200px;
+  margin: 20px 0px 20px 0px;
   margin-right: 20px;
   display: flex;
   border-radius: 2px;

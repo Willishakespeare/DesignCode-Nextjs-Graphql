@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@Styles/styled';
+import Loader from '@Organisms/Loader';
+import { CSSTransition } from 'react-transition-group';
 
 import Navigation from '@Organisms/Navigation';
 import BackgroundImage from '@Atoms/BackgroundImage';
@@ -10,11 +12,22 @@ const StyledMainPageContainer = styled.div`
 `;
 
 const MainPageTemplate: React.FC = ({ children }) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  });
   return (
-    <StyledMainPageContainer>
-      <Navigation />
-      <BackgroundImage>{children}</BackgroundImage>
-    </StyledMainPageContainer>
+    <>
+      <CSSTransition in={loading} timeout={500} classNames="fade" unmountOnExit>
+        <Loader />
+      </CSSTransition>
+      <StyledMainPageContainer>
+        <Navigation />
+        <BackgroundImage>{children}</BackgroundImage>
+      </StyledMainPageContainer>
+    </>
   );
 };
 
