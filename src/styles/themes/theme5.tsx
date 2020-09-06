@@ -31,7 +31,7 @@ const theme5: Theme = {
   },
   description: {
     text: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor.',
+      'Lorem ipsum dolor sit amet sed, consectetur adipiscing elit, sed elit.',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor.'
     ]
   }

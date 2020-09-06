@@ -42,7 +42,7 @@ module.exports = {
       '@Assets': path.resolve(__dirname, '..', 'src', 'assets'),
       '@Atoms': path.resolve(__dirname, '..', 'src', 'components', 'atoms'),
       '@Molecules': path.resolve(__dirname, '..', 'src', 'components', 'molecules'),
-      '@Organism': path.resolve(__dirname, '..', 'src', 'components', 'organism'),
+      '@Organisms': path.resolve(__dirname, '..', 'src', 'components', 'organisms'),
       '@Templates': path.resolve(__dirname, '..', 'src', 'components', 'templates')
     };
 

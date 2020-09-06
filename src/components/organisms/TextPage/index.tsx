@@ -5,7 +5,10 @@ import styled from '@Styles/styled';
 import Button from '@Atoms/Button';
 
 const StyledTextPageContainer = styled.div`
-  margin-left: 7vw;
+  margin-left: 8vw;
+  @media (max-width: 1024px) {
+    margin: auto;
+  }
   z-index: 1;
   @media (max-width: 768px) {
     button {

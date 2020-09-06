@@ -22,7 +22,7 @@ const StyledBackGroundImageBlurEffect = styled.div`
 const StyledBackGroundContainer = styled.div`
   z-index: 1;
   display: flex;
-  padding-top: 100px;
+  padding-top: 80px;
   width: 100vw;
   align-items: center;
   justify-content: space-between;

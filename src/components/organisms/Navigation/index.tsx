@@ -4,6 +4,7 @@ import NavigationMenu from '@Molecules/NavigationMenu';
 import Button from '@Atoms/Button';
 import SearchNav from '@Molecules/SearchNav';
 import Icon from '@Atoms/Icon';
+import Link from 'next/link';
 
 const StyledNavigation = styled.div`
   position: absolute;
@@ -60,7 +61,9 @@ const Navigation: React.FC = () => {
       <StyledContainer>
         <Button icon="home" />
         <SearchNav />
-        <Button>LOGIN</Button>
+        <Link href="/login">
+          <Button>LOGIN</Button>
+        </Link>
       </StyledContainer>
     </StyledNavigation>
   );

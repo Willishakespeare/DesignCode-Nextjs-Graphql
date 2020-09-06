@@ -5,7 +5,7 @@ import LoadContext from '@Assets/hooks/LoadContext';
 
 const StyledTagViewGrid = styled.div`
   z-index: 1;
-  height: 100%;
+  height: max-content;
   width: calc(100vw / 2);
   overflow-x: scroll;
   display: flex;
