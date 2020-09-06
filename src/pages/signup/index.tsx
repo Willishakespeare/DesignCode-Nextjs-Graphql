@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import styled from '@Styles/styled';
 import LoginPageTemplate from '@Templates/LoginPageTemplate';
 import { useFormik } from 'formik';
@@ -33,6 +34,7 @@ type formikProps = {
 };
 const ProjectsPage: React.FC = () => {
   const [newUser] = useMutation(NEW_USER);
+  const router = useRouter();
 
   const formik = useFormik<formikProps>({
     initialValues: {
@@ -64,6 +66,7 @@ const ProjectsPage: React.FC = () => {
       }).catch((error) => {
         throw new Error(error);
       });
+      router.push('/login');
     }
   });
   return (
