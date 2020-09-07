@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AppProps } from 'next/app';
 import { ThemeProvider } from 'emotion-theming';
 import { ApolloProvider } from '@apollo/client';
 import GlobalStyles from '@Styles/globalStyles';
@@ -8,7 +7,7 @@ import LoadContext from '@Assets/hooks/LoadContext';
 import Theme from '@Styles/theme';
 import client from '../config/apollo';
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => {
   const [theme, setTheme] = useState(Theme.theme1);
   const [load, setLoad] = useState(true);
   useEffect(() => {
@@ -19,16 +18,16 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   });
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <LoadContext.Provider value={{ load, setLoad }}>
-        <ThemeProvider theme={theme}>
-          <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <LoadContext.Provider value={{ load, setLoad }}>
+          <ThemeProvider theme={theme}>
             <GlobalStyles />
             <Component setTheme={setTheme} {...pageProps} />
-          </ApolloProvider>
-        </ThemeProvider>
-      </LoadContext.Provider>
-    </ThemeContext.Provider>
+          </ThemeProvider>
+        </LoadContext.Provider>
+      </ThemeContext.Provider>
+    </ApolloProvider>
   );
 };
 

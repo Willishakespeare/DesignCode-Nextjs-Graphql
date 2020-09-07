@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable guard-for-in */
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
@@ -21,13 +23,11 @@ const createToken = (user, secret, expiresIn) => {
 
 const resolvers = {
   Query: {
-    getClient: async (_, { token }) => {
-      const userId = await jwt.verify(token, process.env.USING_SECRETS);
-      return userId;
+    getClient: async (_, {}, ctx) => {
+      return ctx.user;
     },
-    getUser: async (_, { token }) => {
-      const userId = await jwt.verify(token, process.env.USING_SECRETS);
-      return userId;
+    getUser: async (_, {}, ctx) => {
+      return ctx.user;
     },
     getProducts: async () => {
       try {

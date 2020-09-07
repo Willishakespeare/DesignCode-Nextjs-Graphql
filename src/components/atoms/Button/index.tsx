@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import Icon from '@Atoms/Icon';
+import Link from 'next/link';
 
 type ButtonProps = {
   text?: string;
@@ -8,6 +9,7 @@ type ButtonProps = {
   icon?: string;
   position?: 'right';
   onClick?: () => void;
+  href?: string;
 };
 
 const StyledButton = styled.button<ButtonProps>`
@@ -51,13 +53,25 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ onClick, variant, children, icon, position }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, variant, children, icon, position, href }) => {
   return (
-    <StyledButton variant={variant} position={position} onClick={onClick}>
-      {position !== 'right' && icon ? <Icon icon={icon} position={position} /> : null}
-      {children}
-      {position === 'right' && icon ? <Icon icon={icon} position={position} /> : null}
-    </StyledButton>
+    <>
+      {href ? (
+        <Link href={href}>
+          <StyledButton variant={variant} position={position} onClick={onClick}>
+            {position !== 'right' && icon ? <Icon icon={icon} position={position} /> : null}
+            {children}
+            {position === 'right' && icon ? <Icon icon={icon} position={position} /> : null}
+          </StyledButton>
+        </Link>
+      ) : (
+        <StyledButton variant={variant} position={position} onClick={onClick}>
+          {position !== 'right' && icon ? <Icon icon={icon} position={position} /> : null}
+          {children}
+          {position === 'right' && icon ? <Icon icon={icon} position={position} /> : null}
+        </StyledButton>
+      )}
+    </>
   );
 };
 

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@Styles/styled';
 import LoginPageTemplate from '@Templates/LoginPageTemplate';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation, gql } from '@apollo/client';
+import MessageAlert from '@Atoms/MessageAlert';
 
 const NEW_USER = gql`
   mutation newUser($input: UserInput) {
@@ -26,17 +27,12 @@ const StyledLogin = styled.div`
   background-color: black;
   z-index: 2;
 `;
-type formikProps = {
-  name?: string;
-  lastname?: string;
-  email?: string;
-  password?: string;
-};
 const ProjectsPage: React.FC = () => {
+  const [messageAlert, useMessageAlert] = useState(null);
   const [newUser] = useMutation(NEW_USER);
   const router = useRouter();
 
-  const formik = useFormik<formikProps>({
+  const formik = useFormik({
     initialValues: {
       name: '',
       lastname: '',
@@ -64,14 +60,24 @@ const ProjectsPage: React.FC = () => {
           }
         }
       }).catch((error) => {
-        throw new Error(error);
+        useMessageAlert(error.message);
+        setTimeout(() => {
+          useMessageAlert(null);
+        }, 3000);
+        throw new Error(error.message);
       });
-      router.push('/login');
+
+      useMessageAlert(`El usuario ${data.newUser.name} se registro correctamente`);
+      setTimeout(() => {
+        useMessageAlert(null);
+        router.push('/login');
+      }, 2000);
     }
   });
   return (
     <LoginPageTemplate>
       <StyledLogin>
+        <MessageAlert alert={messageAlert} />
         <form onSubmit={formik.handleSubmit}>
           <div>
             <label htmlFor="name">

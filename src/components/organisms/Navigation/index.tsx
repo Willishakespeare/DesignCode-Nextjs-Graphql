@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@Styles/styled';
+import { useRouter } from 'next/router';
 import NavigationMenu from '@Molecules/NavigationMenu';
 import Button from '@Atoms/Button';
 import SearchNav from '@Molecules/SearchNav';
 import Icon from '@Atoms/Icon';
-import Link from 'next/link';
+import Cookies from 'js-cookie';
+import useAuth from '@Assets/hooks/useAuth';
 
 const StyledNavigation = styled.div`
   position: absolute;
@@ -54,6 +56,9 @@ const StyledContainer = styled.div`
 `;
 
 const Navigation: React.FC = () => {
+  const router = useRouter();
+  const { user } = useAuth();
+
   return (
     <StyledNavigation>
       <NavigationMenu />
@@ -61,9 +66,19 @@ const Navigation: React.FC = () => {
       <StyledContainer>
         <Button icon="home" />
         <SearchNav />
-        <Link href="/login">
-          <Button>LOGIN</Button>
-        </Link>
+        {user ? (
+          <Button
+            onClick={() => {
+              Cookies.remove('token');
+              localStorage.removeItem('token');
+              router.reload();
+            }}
+          >
+            LOGOUT
+          </Button>
+        ) : (
+          <Button href="/login">LOGIN</Button>
+        )}
       </StyledContainer>
     </StyledNavigation>
   );

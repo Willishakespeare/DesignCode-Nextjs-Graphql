@@ -47,16 +47,16 @@ const GlobalStyles = () => (
         }
         .changeBackground-enter-active {
           opacity: 1;
-          animation: fadeout 0.8s ease;
+          animation: fadeoutMove 0.8s ease;
         }
         .changeBackground-exit {
           opacity: 1;
         }
         .changeBackground-exit-active {
           opacity: 0;
-          animation: fadein 0.8s ease;
+          animation: fadeinMove 0.8s ease;
         }
-        @keyframes fadeout {
+        @keyframes fadeoutMove {
           0% {
             transform: translateX(-20px);
             opacity: 0;
@@ -66,7 +66,7 @@ const GlobalStyles = () => (
             opacity: 1;
           }
         }
-        @keyframes fadein {
+        @keyframes fadeinMove {
           0% {
             opacity: 1;
             transform: translateX(0px);

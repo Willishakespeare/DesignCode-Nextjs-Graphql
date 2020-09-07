@@ -11,12 +11,15 @@ const apolloServer = new ApolloServer({
     const token = req.headers.authorization || '';
     if (token) {
       try {
-        const user = jwt.verify(token, process.env.USING_SECRETS);
+        const user = jwt.verify(token.replace('Bearer ', ''), process.env.USING_SECRETS);
         return {
           user
         };
-      } catch (error) {}
+      } catch (error) {
+        return null;
+      }
     }
+    return null;
   }
 });
 
