@@ -1,22 +1,7 @@
 import React from 'react';
 import styled from '@Styles/styled';
 import MainPageTemplate from '@Templates/MainPageTemplate';
-import { useQuery, gql } from '@apollo/client';
-
-const GET_USER = gql`
-  query {
-    getUser {
-      id
-      nickname
-      profilePicture
-      emailVerified
-      desc
-      name
-      lastname
-      email
-    }
-  }
-`;
+import useAuth from '@Assets/hooks/useAuth';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -29,14 +14,12 @@ const StyledDiv = styled.div`
 `;
 
 const ProfilePage: React.FC = () => {
-  const { data, loading } = useQuery(GET_USER);
-  if (loading) return null;
-
-  const { name } = data.getUser;
+  const { user, loading, authPage } = useAuth();
+  authPage(loading, user);
 
   return (
     <MainPageTemplate>
-      <StyledDiv>Hola {name}</StyledDiv>
+      {loading ? null : <StyledDiv>Hola {user ? user.name : null}</StyledDiv>}
     </MainPageTemplate>
   );
 };

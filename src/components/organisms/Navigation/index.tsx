@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@Styles/styled';
-import { useRouter } from 'next/router';
 import NavigationMenu from '@Molecules/NavigationMenu';
 import Button from '@Atoms/Button';
 import SearchNav from '@Molecules/SearchNav';
@@ -56,7 +55,6 @@ const StyledContainer = styled.div`
 `;
 
 const Navigation: React.FC = () => {
-  const router = useRouter();
   const { user } = useAuth();
 
   return (
@@ -71,7 +69,7 @@ const Navigation: React.FC = () => {
             onClick={() => {
               Cookies.remove('token');
               localStorage.removeItem('token');
-              router.reload();
+              document.location.href = '/';
             }}
           >
             LOGOUT
