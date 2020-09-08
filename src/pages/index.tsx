@@ -13,7 +13,7 @@ const Index: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       if (user && messageAlertBoolean) {
-        useMessageAlert(`Hola ${user.name}`);
+        useMessageAlert(`Bienvenido ${user.name}`);
         useMessageAlertBoolean(false);
         setTimeout(() => {
           useMessageAlert(null);
